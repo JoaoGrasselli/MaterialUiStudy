@@ -42,8 +42,6 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
   };
 
   const handleEditar = () => {
-    //console.log(`id: ${idTarefa} \n titulo: ${tituloTarefa} \n descrição: ${descricaoTarefa} \n inicio: ${inicioTarefa} \n fim: ${fimTarefa} \n recurso: ${recursoTarefa} \n status: ${statusTarefa}`);
-    //console.log('idTarefaSelecionada: ' + idTarefaSelecionada);
     setTarefas(current =>
       current.map(obj => {
         if (obj.idTarefa === idTarefaSelecionada) {
@@ -63,7 +61,6 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
       }),
     );
 
-    //console.log(`Tarefas Editadas: ` + JSON.stringify(tarefas));
     handleCloseEditar();
   };
 
