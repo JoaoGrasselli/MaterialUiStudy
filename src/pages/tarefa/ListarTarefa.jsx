@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses }  from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -30,6 +31,16 @@ function createData(
 ) {
   return { idTarefa, tituloTarefa, descricaoTarefa, inicioTarefa, fimTarefa, statusTarefa, recursoTarefa };
 }
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
 //Definição do array contendo os dados iniciais da listagem de tarefas
 const initialRows = [
@@ -90,18 +101,18 @@ const ListarTarefa = () => {
         /> 
         <CardContent>
             <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <Table sx={{ minWidth: 650 }} stickyHeader size="small" aria-label="a dense table">
                 <TableHead>
                 <TableRow>
-                    <TableCell>#</TableCell>
-                    <TableCell>Título</TableCell>
-                    <TableCell align="right">Descrição</TableCell>
-                    <TableCell align="right">Data de Início</TableCell>
-                    <TableCell align="right">Data de Finalização</TableCell>
-                    <TableCell align="right">Status</TableCell>
-                    <TableCell align="right">Recurso</TableCell>
-                    <TableCell align="left"></TableCell>
-                    <TableCell align="left"></TableCell>
+                    <StyledTableCell>#</StyledTableCell>
+                    <StyledTableCell>Título</StyledTableCell>
+                    <StyledTableCell align="right">Descrição</StyledTableCell>
+                    <StyledTableCell align="right">Data de Início</StyledTableCell>
+                    <StyledTableCell align="right">Data de Finalização</StyledTableCell>
+                    <StyledTableCell align="right">Status</StyledTableCell>
+                    <StyledTableCell align="right">Recurso</StyledTableCell>
+                    <StyledTableCell align="left"></StyledTableCell>
+                    <StyledTableCell align="left"></StyledTableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
